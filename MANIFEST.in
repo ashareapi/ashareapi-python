@@ -1,0 +1,16 @@
+# PyPI sdist 内容清单
+include README.md
+include README.en.md
+include CHANGELOG.md
+include LICENSE
+recursive-include examples *.py
+recursive-include tests *.py
+
+# 排除编辑器备份、缓存与构建产物
+global-exclude *.bak *.bak_* *.orig *.rej *~
+global-exclude *.pyc *.pyo
+global-exclude .DS_Store
+prune __pycache__
+prune dist
+prune build
+prune *.egg-info
