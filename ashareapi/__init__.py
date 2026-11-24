@@ -5,7 +5,7 @@
 >>> cli.quote("sh600667")
 
 >>> cli = AShareAPI("ct-你的Key")      # 付费端点需 Key（也读环境变量 ASHARE_API_KEY）
->>> cli.screen(preset="low_pe", limit=10)
+>>> cli.screen(preset="low_pe", sort="roe_ttm", limit=10)
 
 文档：https://ashareapi.com/docs  ·  端点清单：https://ashareapi.com/endpoints
 """

@@ -1,4 +1,4 @@
-"""纯单测（零网络）—— 代码归一化 / 信封 → DataFrame 转换 / 无 Key 守卫"""
+"""纯单测（零网络）—— 代码格式转换 / 信封 → DataFrame 转换 / 无 Key 时的处理"""
 import pytest
 
 from ashareapi import AShareAPI, AuthError
@@ -26,7 +26,7 @@ def test_normalize_bare_six():
 
 def test_normalize_passthrough_garbage():
     assert normalize_code("") == ""
-    assert normalize_code("not-a-code") == "not-a-code"   # 认不出就不猜，让 API 报错
+    assert normalize_code("not-a-code") == "not-a-code"   # 认不出就原样返回，由服务端给出错误
 
 
 def test_frame_structured_wins():
@@ -95,10 +95,11 @@ def test_ok_absent_is_not_failure():
 
 
 def test_free_endpoints_constant():
-    """免 Key 端点清单（无 Key 守卫依赖它）：5 数据端点 + health/challenge 两个工具端点"""
+    """免 Key 端点清单：10 个（8 个数据端点 + health / challenge 两个工具端点）"""
     from ashareapi.client import FREE_ENDPOINTS
-    assert len(FREE_ENDPOINTS) == 7
+    assert len(FREE_ENDPOINTS) == 10
     for p in ("/v1/quote", "/v1/kline", "/v1/hot", "/v1/market-overview", "/v1/changedist",
+              "/v1/wiki", "/v1/trade-calendar", "/v1/models",
               "/v1/health", "/v1/challenge"):
         assert p in FREE_ENDPOINTS
 

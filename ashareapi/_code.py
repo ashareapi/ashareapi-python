@@ -18,7 +18,7 @@ _BARE = re.compile(r"^\d{6}$")
 
 
 def normalize_code(code: str) -> str:
-    """把各种代码写法统一成 API 原生格式；认不出来就原样返回（让 API 报错，不猜）"""
+    """把常见代码写法统一成 API 原生格式（如 `600667.SH` → `sh600667`）；认不出的写法原样发出，由服务端返回明确错误。"""
     c = (code or "").strip()
     if not c:
         return c

@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ashareapi"
-version = "0.2.0"
-description = "A股数据 API 官方 Python SDK —— 行情 / K线 / 分时 / 财务 / 资金 / 龙虎榜 / 板块 / 因子选股 / 量化回测（40 端点，免费端点无需 Key）"
+version = "0.3.1"
+description = "A股数据 API 官方 Python SDK —— 行情（分时 · 五档盘口）/ K线 / 财务 / 资金 / 龙虎榜 / L2 大单 / 板块 / 因子选股 / 量化回测 / 短线打板 / 集合竞价 / 资讯公告 · 102 个端点，免费端点无需注册"
 readme = "README.md"
 requires-python = ">=3.9"
 license = "MIT"
